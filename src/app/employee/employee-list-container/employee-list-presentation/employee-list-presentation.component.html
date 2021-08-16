@@ -1,0 +1,127 @@
+
+<form #Form="ngForm" class="mx-3 ">
+      <div  style="float:right;margin-top: -75px; ">
+            <input type="text"  name="search"   [(ngModel)]="searchText " placeholder="Searching name" >
+            <i class="fa fa-search p-2 " aria-hidden="true" style="background-color: blue;"></i> </div> 
+      </form>
+
+
+<div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-body ">
+                        <button class="btn btn-primary" style="background-color: blue;" data-toggle="tooltip" data-placement="right" title="add" routerLink='add'>
+                              Add new
+                            </button>
+                            <button type="button" class="btn btn-light" style="margin-left: 10px;" (click)="deleteEmpSelected()">Delete Selected Emp</button>
+                            
+                  </div>
+                  <div class="table-responsive">
+                      <table class="table margin-right:3px"  >
+                          <thead class="thead-light">
+                              <tr >
+                                    <th>
+                                          <i class="fa fa-pencil" aria-hidden="true" style="color:blue;"></i>
+                                    </th>
+                                     <th > <label class="customcheckbox m-b-400 "> 
+                                    <input type="checkbox" id="mainCheckbox" style="margin-left: -10px;"> <span class="checkmark"></span> </label> </th>
+                                 
+                                  <th [appSort]="employees" data-order="desc" data-name="firstname"scope="col"  >First Name
+                                    <span class="fa fa-sort"></span>
+           
+                  </th>
+                                  <th [appSort]="employees" data-order="desc" data-name="lastname" scope="col" >Last Name
+                                    <span class="fa fa-sort"></span>
+
+                                  </th>
+                                  <th scope="col">Birth Date</th>
+                                  <th scope="col">Gender</th>
+                                  <th scope="col">Enabled</th>
+
+                                  <th scope="col">Department</th>
+
+                                  
+
+                              </tr>
+                          </thead>
+                          <tbody class="customtable">
+                              <tr *ngFor="let employeedetail of employees | searchfilter:searchText   | slice: (curPage * pageSize) - pageSize :curPage * pageSize; let i=index ">
+                                    <th>
+                                          <i class="fa fa-pencil" aria-hidden="true" style="color:blue;" routerLink="/edit/{{employeedetail.id}}"></i>
+                                    </th>
+                                         
+                                  <!-- <th> <label class="customcheckbox mx-3"> <input type="checkbox" class="listCheckbox"> <span class="checkmark"></span> </label> </th> -->
+                                  <!-- <td><input type="checkbox" value="{{employeedetail.id}}" [(ngModel)]="employees[i].checked"></td> -->
+                                  <td><input #{{employeedetail.id}} [(ngModel)]="employeedetail.selected" type="checkbox" ></td>
+                                  <!-- <td>{{employeedetail.id}}</td> -->
+                                  <td>{{employeedetail.firstname}}</td>
+                                  <td>{{employeedetail.lastname}}</td>
+                                  <td>{{employeedetail.birthdate}}</td>
+                                  <td>{{employeedetail.gender | employeeGender:employeedetail.gender }}</td>
+                                  <td>
+                                    <!-- <ul class="checkbox-items">
+                                      
+                                        <input type="checkbox" [(ngModel)]="employeedetail.boolean" (change)="fetchSelectedItems()">
+                                    </ul> -->
+                                    
+                                      <!-- <input type="checkbox" value="employeedetail.id" [attr.checked]=" employeedetail.enable > -1 ? true : null"> -->
+                                      <div>
+                                        <input type="checkbox" [(ngModel)]="employeedetail.enable" /> 
+                                      </div>
+                                    </td>
+                                  <td>{{employeedetail.department}}</td>
+                                 
+                                   
+
+
+
+                              </tr>
+                              
+                          </tbody>
+
+                      </table>
+                     
+                      <div> Display
+                        <select [(ngModel)]="pageSize" (change)="numberOfPages()">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                        </select>
+                      <p class="pagination">
+                        <button  class = "btn btn-primary btn-xs" [disabled]="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
+                        <span>Page {{curPage}} of {{ numberOfPages() }}</span>
+                        <button  class = "btn btn-primary btn-xs" [disabled]="curPage >= employees.length/pageSize" (click)="curPage = curPage + 1">NEXT</button>
+                    </p>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- <nav aria-label="Page navigation example" class="mt-2">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" (click)="pagination.onFirst()">First</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="pagination.onPrevious()">Previous</a>
+          </li>
+          <input
+            #pagination="pagination"
+            appPagination
+            type="number"
+            min="1"
+            max="2"
+            [totalPages]="5"
+            value="1"
+            (onChangeEventEmitter)="onPageChange($event)"
+          />
+          <li class="page-item">
+            <a class="page-link" (click)="pagination.onNext()">Next</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="pagination.onLast()">Last</a>
+          </li>
+        </ul>
+      </nav> -->
+  </div>

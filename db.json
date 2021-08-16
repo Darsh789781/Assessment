@@ -1,0 +1,92 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "employee": [
+    {
+      "firstname": "meet",
+      "lastname": "Das",
+      "department": "CEE",
+      "birthdate": "2021-08-11",
+      "gender": "male",
+      "enable": "",
+      "id": 19
+    },
+    {
+      "firstname": "khushi",
+      "lastname": "ksrki",
+      "department": "OOp",
+      "birthdate": "2021-08-14",
+      "gender": "female",
+      "enable": true,
+      "id": 22
+    },
+    {
+      "firstname": "khusal",
+      "lastname": "tom",
+      "department": "TTTT",
+      "birthdate": "2021-08-10",
+      "gender": "male",
+      "enable": "",
+      "id": 23
+    },
+    {
+      "firstname": "Mukesh",
+      "lastname": "Vihar",
+      "department": "TCs",
+      "birthdate": "2021-08-04",
+      "gender": "male",
+      "enable": true,
+      "id": 24
+    },
+    {
+      "firstname": "kevin",
+      "lastname": "patel",
+      "department": "CEo",
+      "birthdate": "2021-08-12",
+      "gender": "male",
+      "enable": "",
+      "id": 25
+    },
+    {
+      "firstname": "vicky",
+      "lastname": "sharma",
+      "department": "uDE",
+      "birthdate": "2021-08-04",
+      "gender": "male",
+      "enable": true,
+      "id": 26
+    },
+    {
+      "firstname": "Varsha",
+      "lastname": "Modi",
+      "department": "Eng",
+      "birthdate": "2021-08-11",
+      "gender": "female",
+      "enable": true,
+      "id": 27
+    },
+    {
+      "firstname": "Rudra",
+      "lastname": "Naik",
+      "department": "CEE",
+      "birthdate": "2021-08-05",
+      "gender": "male",
+      "enable": true,
+      "id": 28
+    },
+    {
+      "firstname": "Kailash",
+      "lastname": "Kher",
+      "department": "UPSc",
+      "birthdate": "2021-08-01",
+      "gender": "male",
+      "enable": true,
+      "id": 29
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<div class="container mt-3">
+      <form class="row" [formGroup]="employeeForm">
+          
+          <div class="col-md-12">
+              <label for="firstname" class="form-label">First name </label>
+              <input type="text" class="form-control"  formControlName="firstname" id="name">
+              <span class="error" *ngIf="!employeeForm.controls.firstname.valid && employeeForm.controls.firstname.touched" 
+              class="text-danger"> Name is required</span>
+         
+          </div>
+          <div>
+              <label for="lastname" class="form-label mt-2">lastname </label>
+              <input type="text" class="form-control"  formControlName = "lastname" id="lastname">
+              <span class="error" *ngIf="!employeeForm.controls.lastname.valid && employeeForm.controls.lastname.touched" 
+              class="text-danger">Last name is required</span>
+          </div>
+      
+          <div class="form-group mt-2" >
+            <label for="gender">Gender:</label>
+            <div>
+              <input id="male" type="radio" value="male" name="gender" formControlName="gender">
+              <label for="male">Male</label>
+           </div>
+  
+           <div >
+              <input id="female" type="radio" value="female" name="gender" formControlName="gender">
+              <label for="female">Female</label>
+           </div>
+
+              
+        
+        </div>
+        <div class="mt-2">
+              <input type="date"  formControlName="birthdate"  [max]="getToday()">
+        </div>
+      
+          
+          <div class="col-md-9 mt-2">
+            <label for="department" class="form-label">Department </label>
+            <input type="text" class="form-control"  formControlName="department" id="phone">
+            <span class="error" *ngIf="!employeeForm.controls.department.valid && employeeForm.controls.department.touched" 
+            class="text-danger"> Department is required</span>
+        </div>
+        <div class="form-group form-check" *ngIf = "employeeForm.controls.enable ? true :false">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="enable">
+          <label class="form-check-label" for="exampleCheck1">Enabled</label>
+        </div>
+      
+         
+      
+          <div class="col-9 mt-3">
+              <button class="btn btn-primary" type="submit"  [disabled]="!employeeForm.valid" (click)="onSubmit()">Submit form</button>
+          </div>
+      </form>
+  </div>
